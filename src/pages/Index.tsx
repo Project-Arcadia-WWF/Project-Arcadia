@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { GraduationCap, Star, Trophy } from "lucide-react";
+import { Leaf, Globe, Gift } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const Index = () => {
@@ -19,19 +19,19 @@ const Index = () => {
 
   const features = [
     {
-      icon: <GraduationCap className="w-8 h-8 text-primary" />,
-      title: "Educational",
-      description: "Perfect for students and learning environments",
+      icon: <Globe className="w-8 h-8 text-primary" />,
+      title: "Global Wildlife",
+      description: "Learn about diverse species from around the world",
     },
     {
-      icon: <Star className="w-8 h-8 text-primary" />,
-      title: "Interactive",
-      description: "Engaging and fun to use",
+      icon: <Leaf className="w-8 h-8 text-primary" />,
+      title: "Conservation",
+      description: "Understand the importance of wildlife preservation",
     },
     {
-      icon: <Trophy className="w-8 h-8 text-primary" />,
-      title: "Rewarding",
-      description: "Achievement-based learning system",
+      icon: <Gift className="w-8 h-8 text-primary" />,
+      title: "Support Wildlife",
+      description: "Your donations help protect endangered species",
     },
   ];
 
@@ -44,10 +44,10 @@ const Index = () => {
             Welcome to Project Arcadia
           </span>
           <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-600">
-            Learning Made Fun
+            Protecting Wildlife Together
           </h1>
           <p className="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto mb-8">
-            Join our interactive learning platform designed specifically for students like you
+            Join us in our mission to educate and preserve the incredible diversity of Earth's wildlife through interactive learning and conservation efforts
           </p>
           <Button
             size="lg"
@@ -55,11 +55,11 @@ const Index = () => {
             onClick={() => {
               toast({
                 title: "Welcome!",
-                description: "Thank you for your interest in Project Arcadia!",
+                description: "Thank you for your interest in wildlife conservation!",
               });
             }}
           >
-            Get Started
+            Learn More
           </Button>
         </div>
       </section>
@@ -81,13 +81,26 @@ const Index = () => {
         </div>
       </section>
 
-      {/* PayPal Section */}
+      {/* About Section */}
+      <section className="container mx-auto px-4 py-16">
+        <div className="max-w-3xl mx-auto text-center mb-16">
+          <h2 className="text-3xl font-bold mb-6">About Project Arcadia</h2>
+          <p className="text-gray-600 mb-4">
+            Project Arcadia is a student-led initiative dedicated to wildlife conservation and education. We believe that understanding our world's incredible biodiversity is the first step toward protecting it.
+          </p>
+          <p className="text-gray-600">
+            Through interactive learning experiences and direct support for conservation efforts, we're building a community of young environmentalists committed to preserving Earth's precious wildlife.
+          </p>
+        </div>
+      </section>
+
+      {/* Donation Section */}
       <section className="container mx-auto px-4 py-16">
         <div className="max-w-md mx-auto text-center">
           <Card className="p-8 backdrop-blur-sm bg-white/50">
-            <h2 className="text-2xl font-bold mb-4">Ready to Join?</h2>
+            <h2 className="text-2xl font-bold mb-4">Support Our Mission</h2>
             <p className="text-gray-600 mb-6">
-              Click below to proceed with your payment
+              Your donation helps us protect wildlife and their habitats
             </p>
             <Button
               className={`w-full ${
@@ -98,7 +111,7 @@ const Index = () => {
               onClick={handlePaypalClick}
               disabled={paypalClicked}
             >
-              {paypalClicked ? "PayPal Button Placeholder" : "Pay with PayPal"}
+              {paypalClicked ? "PayPal Button Placeholder" : "Donate with PayPal"}
             </Button>
           </Card>
         </div>
