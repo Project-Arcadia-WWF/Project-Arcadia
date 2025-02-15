@@ -1,6 +1,7 @@
 
 import { Card } from "@/components/ui/card";
 import { Home, User } from "lucide-react";
+import { Link } from "react-router-dom";
 import {
   Menubar,
   MenubarContent,
@@ -8,6 +9,30 @@ import {
   MenubarMenu,
   MenubarTrigger,
 } from "@/components/ui/menubar";
+
+const teamMembers = [
+  {
+    id: "sarah",
+    name: "Sarah Johnson",
+    role: "Conservation Director",
+    image: "/team/sarah.jpg",
+    webpage: "https://example.com/sarah",
+  },
+  {
+    id: "michael",
+    name: "Michael Chen",
+    role: "Education Coordinator",
+    image: "/team/michael.jpg",
+    webpage: "https://example.com/michael",
+  },
+  {
+    id: "emily",
+    name: "Emily Martinez",
+    role: "Wildlife Researcher",
+    image: "/team/emily.jpg",
+    webpage: "https://example.com/emily",
+  },
+];
 
 const AboutUs = () => {
   return (
@@ -47,7 +72,7 @@ const AboutUs = () => {
       {/* About Content */}
       <section className="container mx-auto px-4 pt-24 pb-16">
         <Card className="max-w-3xl mx-auto p-8 backdrop-blur-sm bg-white/50">
-          <h1 className="text-4xl font-bold mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-600">
+          <h1 className="text-4xl font-bold mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70">
             About Project Arcadia
           </h1>
           <div className="space-y-6 text-gray-600">
@@ -65,6 +90,26 @@ const AboutUs = () => {
             </p>
           </div>
         </Card>
+      </section>
+
+      {/* Team Section */}
+      <section className="container mx-auto px-4 pb-16">
+        <h2 className="text-3xl font-bold text-center mb-12 text-primary">Our Team</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          {teamMembers.map((member) => (
+            <Link to={`/team/${member.id}`} key={member.id}>
+              <Card className="p-6 text-center hover:shadow-lg transition-shadow backdrop-blur-sm bg-white/50">
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="w-32 h-32 rounded-full mx-auto mb-4 object-cover hover:scale-105 transition-transform"
+                />
+                <h3 className="text-xl font-semibold text-primary mb-2">{member.name}</h3>
+                <p className="text-gray-600">{member.role}</p>
+              </Card>
+            </Link>
+          ))}
+        </div>
       </section>
     </div>
   );
