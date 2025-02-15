@@ -1,9 +1,15 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Leaf, Globe, Gift } from "lucide-react";
+import { Leaf, Globe, Gift, Home, User } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import {
+  Menubar,
+  MenubarContent,
+  MenubarItem,
+  MenubarMenu,
+  MenubarTrigger,
+} from "@/components/ui/menubar";
 
 const Index = () => {
   const { toast } = useToast();
@@ -37,6 +43,38 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-secondary">
+      {/* Menu Bar */}
+      <Menubar className="fixed top-0 left-0 right-0 z-50 px-4 py-2 backdrop-blur-sm bg-white/80 border-b">
+        <MenubarMenu>
+          <MenubarTrigger className="flex items-center gap-2">
+            <Home className="w-4 h-4" />
+            Home
+          </MenubarTrigger>
+          <MenubarContent>
+            <MenubarItem>
+              <a href="/" className="flex items-center gap-2">
+                <Home className="w-4 h-4" />
+                Home
+              </a>
+            </MenubarItem>
+          </MenubarContent>
+        </MenubarMenu>
+        <MenubarMenu>
+          <MenubarTrigger className="flex items-center gap-2">
+            <User className="w-4 h-4" />
+            About Us
+          </MenubarTrigger>
+          <MenubarContent>
+            <MenubarItem>
+              <a href="#about" className="flex items-center gap-2">
+                <User className="w-4 h-4" />
+                About Us
+              </a>
+            </MenubarItem>
+          </MenubarContent>
+        </MenubarMenu>
+      </Menubar>
+
       {/* Hero Section */}
       <section className="container mx-auto px-4 pt-20 pb-16">
         <div className="text-center animate-fade-down">
@@ -82,7 +120,7 @@ const Index = () => {
       </section>
 
       {/* About Section */}
-      <section className="container mx-auto px-4 py-16">
+      <section id="about" className="container mx-auto px-4 py-16">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="text-3xl font-bold mb-6">About Project Arcadia</h2>
           <p className="text-gray-600 mb-4">
