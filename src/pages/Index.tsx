@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -66,7 +67,7 @@ const Index = () => {
           </MenubarTrigger>
           <MenubarContent>
             <MenubarItem>
-              <a href="#about" className="flex items-center gap-2">
+              <a href="/about" className="flex items-center gap-2">
                 <User className="w-4 h-4" />
                 About Us
               </a>
@@ -116,19 +117,6 @@ const Index = () => {
               <p className="text-gray-600">{feature.description}</p>
             </Card>
           ))}
-        </div>
-      </section>
-
-      {/* About Section */}
-      <section id="about" className="container mx-auto px-4 py-16">
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-3xl font-bold mb-6">About Project Arcadia</h2>
-          <p className="text-gray-600 mb-4">
-            Project Arcadia is a student-led initiative dedicated to wildlife conservation and education. We believe that understanding our world's incredible biodiversity is the first step toward protecting it.
-          </p>
-          <p className="text-gray-600">
-            Through interactive learning experiences and direct support for conservation efforts, we're building a community of young environmentalists committed to preserving Earth's precious wildlife.
-          </p>
         </div>
       </section>
 
