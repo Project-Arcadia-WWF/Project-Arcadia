@@ -14,7 +14,7 @@ import {
   type UserProgress,
   type InsertUserProgress,
   type RangerLevel,
-  type InsertRangerLevel
+  type InsertRangerLevel,
 } from "@shared/schema";
 
 export interface IStorage {
@@ -64,47 +64,53 @@ export class MemStorage implements IStorage {
   private seedData() {
     const animals: InsertAnimal[] = [
       {
-        name: "Leo the Tiger",
+        name: "Leo the Amur Leopard",
         species: "Bengal Tiger",
-        description: "A majestic tiger who lives in the forests of India.",
-        imageUrl: "https://images.unsplash.com/photo-1669589486635-19d86f6ea708",
-        conservationStatus: "Endangered"
+        description: "Leo's family are often poached and illegally traded for their beautiful, spotted fur.",
+        imageUrl:
+          "https://images.unsplash.com/photo-1605132410660-f388de10e778?q=80&w=2411",
+        conservationStatus: "Critically Endangered",
       },
       {
         name: "Emma the Elephant",
         species: "African Elephant",
         description: "A gentle giant who roams the African savanna.",
-        imageUrl: "https://images.unsplash.com/photo-1696964257324-2954da201aa1",
-        conservationStatus: "Vulnerable"
+        imageUrl:
+          "https://images.unsplash.com/photo-1696964257324-2954da201aa1",
+        conservationStatus: "Vulnerable",
       },
       {
         name: "Peter the Panda",
         species: "Giant Panda",
         description: "A bamboo-loving bear from the mountains of China.",
-        imageUrl: "https://images.unsplash.com/photo-1700048614554-a20ac206a49e",
-        conservationStatus: "Vulnerable"
-      }
+        imageUrl:
+          "https://images.unsplash.com/photo-1700048614554-a20ac206a49e",
+        conservationStatus: "Vulnerable",
+      },
     ];
 
     const stories: InsertStory[] = [
       {
         title: "Saving the Tigers",
-        content: "Thanks to conservation efforts, tiger populations are growing!",
-        imageUrl: "https://images.unsplash.com/photo-1669589486635-19d86f6ea708"
+        content:
+          "Thanks to conservation efforts, tiger populations are growing!",
+        imageUrl:
+          "https://images.unsplash.com/photo-1669589486635-19d86f6ea708",
       },
       {
         title: "Protecting Elephant Habitats",
         content: "New sanctuary created to protect elephant migration routes.",
-        imageUrl: "https://images.unsplash.com/photo-1696964257324-2954da201aa1"
-      }
+        imageUrl:
+          "https://images.unsplash.com/photo-1696964257324-2954da201aa1",
+      },
     ];
 
-    animals.forEach(animal => {
+    animals.forEach((animal) => {
       const id = this.currentId++;
       this.animals.set(id, { ...animal, id });
     });
 
-    stories.forEach(story => {
+    stories.forEach((story) => {
       const id = this.currentId++;
       this.stories.set(id, { ...story, id });
     });
@@ -125,93 +131,149 @@ export class MemStorage implements IStorage {
               questions: [
                 {
                   question: "What does WWF stand for?",
-                  options: ["World Wildlife Fund", "Worldwide Wildlife Foundation", "World Water Foundation", "Wild World Federation"],
-                  correct: 0
+                  options: [
+                    "World Wildlife Fund",
+                    "Worldwide Wildlife Foundation",
+                    "World Water Foundation",
+                    "Wild World Federation",
+                  ],
+                  correct: 0,
                 },
                 {
                   question: "Which of these animals is NOT endangered?",
-                  options: ["Gray Wolf", "Giant Panda", "Bengal Tiger", "Mountain Gorilla"],
-                  correct: 0
+                  options: [
+                    "Gray Wolf",
+                    "Giant Panda",
+                    "Bengal Tiger",
+                    "Mountain Gorilla",
+                  ],
+                  correct: 0,
                 },
                 {
                   question: "What is a habitat?",
-                  options: ["Where an animal lives", "What an animal eats", "How an animal hunts", "When an animal sleeps"],
-                  correct: 0
+                  options: [
+                    "Where an animal lives",
+                    "What an animal eats",
+                    "How an animal hunts",
+                    "When an animal sleeps",
+                  ],
+                  correct: 0,
                 },
                 {
                   question: "Which of these helps protect endangered species?",
-                  options: ["National Parks", "Shopping Malls", "Highways", "Factories"],
-                  correct: 0
+                  options: [
+                    "National Parks",
+                    "Shopping Malls",
+                    "Highways",
+                    "Factories",
+                  ],
+                  correct: 0,
                 },
                 {
                   question: "What is conservation?",
-                  options: ["Protecting nature", "Building cities", "Making toys", "Playing sports"],
-                  correct: 0
-                }
-              ]
+                  options: [
+                    "Protecting nature",
+                    "Building cities",
+                    "Making toys",
+                    "Playing sports",
+                  ],
+                  correct: 0,
+                },
+              ],
             },
             {
               level: 2,
               questions: [
                 {
                   question: "What is the biggest threat to sea turtles?",
-                  options: ["Plastic pollution", "Thunderstorms", "Seaweed", "Small fish"],
-                  correct: 0
+                  options: [
+                    "Plastic pollution",
+                    "Thunderstorms",
+                    "Seaweed",
+                    "Small fish",
+                  ],
+                  correct: 0,
                 },
                 {
-                  question: "Which animal is known as the 'King of the Jungle'?",
+                  question:
+                    "Which animal is known as the 'King of the Jungle'?",
                   options: ["Lion", "Tiger", "Elephant", "Giraffe"],
-                  correct: 0
+                  correct: 0,
                 },
                 {
                   question: "What do pandas mainly eat?",
                   options: ["Bamboo", "Fish", "Berries", "Insects"],
-                  correct: 0
+                  correct: 0,
                 },
                 {
                   question: "Which continent has the most diverse wildlife?",
                   options: ["Africa", "Europe", "North America", "Australia"],
-                  correct: 0
+                  correct: 0,
                 },
                 {
                   question: "What is deforestation?",
-                  options: ["Cutting down forests", "Planting trees", "Growing flowers", "Building nests"],
-                  correct: 0
-                }
-              ]
+                  options: [
+                    "Cutting down forests",
+                    "Planting trees",
+                    "Growing flowers",
+                    "Building nests",
+                  ],
+                  correct: 0,
+                },
+              ],
             },
             {
               level: 3,
               questions: [
                 {
                   question: "What is the purpose of a wildlife corridor?",
-                  options: ["Connect habitats", "Store food", "Train animals", "Build homes"],
-                  correct: 0
+                  options: [
+                    "Connect habitats",
+                    "Store food",
+                    "Train animals",
+                    "Build homes",
+                  ],
+                  correct: 0,
                 },
                 {
                   question: "Which of these is a keystone species?",
                   options: ["Elephant", "Mouse", "Butterfly", "Ant"],
-                  correct: 0
+                  correct: 0,
                 },
                 {
                   question: "What is biodiversity?",
-                  options: ["Variety of life", "Type of plant", "Kind of weather", "Ocean current"],
-                  correct: 0
+                  options: [
+                    "Variety of life",
+                    "Type of plant",
+                    "Kind of weather",
+                    "Ocean current",
+                  ],
+                  correct: 0,
                 },
                 {
                   question: "How do polar bears stay warm?",
-                  options: ["Thick fur and blubber", "Hot springs", "Fires", "Warm caves"],
-                  correct: 0
+                  options: [
+                    "Thick fur and blubber",
+                    "Hot springs",
+                    "Fires",
+                    "Warm caves",
+                  ],
+                  correct: 0,
                 },
                 {
                   question: "What is an ecosystem?",
-                  options: ["Community of organisms", "Type of building", "Weather pattern", "Mountain range"],
-                  correct: 0
-                }
-              ]
-            }
-          ]
-        }
+                  options: [
+                    "Community of organisms",
+                    "Type of building",
+                    "Weather pattern",
+                    "Mountain range",
+                  ],
+                  correct: 0,
+                },
+              ],
+            },
+          ],
+        },
       },
       {
         title: "Habitat Match",
@@ -227,8 +289,8 @@ export class MemStorage implements IStorage {
                 { animal: "Penguin", habitat: "Antarctica" },
                 { animal: "Lion", habitat: "Savanna" },
                 { animal: "Tiger", habitat: "Jungle" },
-                { animal: "Polar Bear", habitat: "Arctic" }
-              ]
+                { animal: "Polar Bear", habitat: "Arctic" },
+              ],
             },
             {
               level: 2,
@@ -237,8 +299,8 @@ export class MemStorage implements IStorage {
                 { animal: "Camel", habitat: "Desert" },
                 { animal: "Monkey", habitat: "Rainforest" },
                 { animal: "Eagle", habitat: "Mountains" },
-                { animal: "Seal", habitat: "Coast" }
-              ]
+                { animal: "Seal", habitat: "Coast" },
+              ],
             },
             {
               level: 3,
@@ -248,15 +310,16 @@ export class MemStorage implements IStorage {
                 { animal: "Meerkat", habitat: "Desert" },
                 { animal: "Sloth", habitat: "Rainforest" },
                 { animal: "Wolf", habitat: "Tundra" },
-                { animal: "Crocodile", habitat: "Wetlands" }
-              ]
-            }
-          ]
-        }
+                { animal: "Crocodile", habitat: "Wetlands" },
+              ],
+            },
+          ],
+        },
       },
       {
         title: "Food Chain Challenge",
-        description: "Build correct food chains and learn about ecosystem balance",
+        description:
+          "Build correct food chains and learn about ecosystem balance",
         type: "puzzle",
         difficulty: "hard",
         pointsToEarn: 200,
@@ -268,9 +331,9 @@ export class MemStorage implements IStorage {
                 { id: 1, name: "Sun", type: "producer" },
                 { id: 2, name: "Grass", type: "producer" },
                 { id: 3, name: "Rabbit", type: "consumer" },
-                { id: 4, name: "Fox", type: "consumer" }
+                { id: 4, name: "Fox", type: "consumer" },
               ],
-              correctOrder: [1, 2, 3, 4]
+              correctOrder: [1, 2, 3, 4],
             },
             {
               level: 2,
@@ -279,9 +342,9 @@ export class MemStorage implements IStorage {
                 { id: 2, name: "Plankton", type: "producer" },
                 { id: 3, name: "Small Fish", type: "consumer" },
                 { id: 4, name: "Tuna", type: "consumer" },
-                { id: 5, name: "Shark", type: "consumer" }
+                { id: 5, name: "Shark", type: "consumer" },
               ],
-              correctOrder: [1, 2, 3, 4, 5]
+              correctOrder: [1, 2, 3, 4, 5],
             },
             {
               level: 3,
@@ -291,16 +354,16 @@ export class MemStorage implements IStorage {
                 { id: 3, name: "Caterpillar", type: "consumer" },
                 { id: 4, name: "Bird", type: "consumer" },
                 { id: 5, name: "Snake", type: "consumer" },
-                { id: 6, name: "Eagle", type: "consumer" }
+                { id: 6, name: "Eagle", type: "consumer" },
               ],
-              correctOrder: [1, 2, 3, 4, 5, 6]
-            }
-          ]
-        }
-      }
+              correctOrder: [1, 2, 3, 4, 5, 6],
+            },
+          ],
+        },
+      },
     ];
 
-    games.forEach(game => {
+    games.forEach((game) => {
       const id = this.currentId++;
       this.games.set(id, { ...game, id });
     });
@@ -312,29 +375,29 @@ export class MemStorage implements IStorage {
         name: "Scout Ranger",
         minPoints: 0,
         badge: "https://example.com/badges/scout.svg",
-        description: "Beginning your wildlife conservation journey"
+        description: "Beginning your wildlife conservation journey",
       },
       {
         name: "Explorer Ranger",
         minPoints: 500,
         badge: "https://example.com/badges/explorer.svg",
-        description: "Growing your conservation knowledge"
+        description: "Growing your conservation knowledge",
       },
       {
         name: "Guardian Ranger",
         minPoints: 1000,
         badge: "https://example.com/badges/guardian.svg",
-        description: "Becoming a true wildlife protector"
+        description: "Becoming a true wildlife protector",
       },
       {
         name: "Master Ranger",
         minPoints: 2000,
         badge: "https://example.com/badges/master.svg",
-        description: "Leading the way in conservation"
-      }
+        description: "Leading the way in conservation",
+      },
     ];
 
-    levels.forEach(level => {
+    levels.forEach((level) => {
       const id = this.currentId++;
       this.rangerLevels.set(id, { ...level, id });
     });
@@ -389,13 +452,18 @@ export class MemStorage implements IStorage {
     return this.userProgress.get(userId);
   }
 
-  async createUserProgress(progress: InsertUserProgress): Promise<UserProgress> {
+  async createUserProgress(
+    progress: InsertUserProgress,
+  ): Promise<UserProgress> {
     const newProgress = { ...progress, id: this.currentId++ };
     this.userProgress.set(progress.userId, newProgress);
     return newProgress;
   }
 
-  async updateUserPoints(userId: string, points: number): Promise<UserProgress> {
+  async updateUserPoints(
+    userId: string,
+    points: number,
+  ): Promise<UserProgress> {
     const progress = await this.getUserProgress(userId);
     if (!progress) {
       return this.createUserProgress({
@@ -403,13 +471,13 @@ export class MemStorage implements IStorage {
         totalPoints: points,
         currentLevel: 1,
         gamesCompleted: 1,
-        donationsCount: 0
+        donationsCount: 0,
       });
     }
 
     const updated = {
       ...progress,
-      totalPoints: progress.totalPoints + points
+      totalPoints: progress.totalPoints + points,
     };
     this.userProgress.set(userId, updated);
     return updated;
@@ -422,7 +490,7 @@ export class MemStorage implements IStorage {
   async getCurrentLevel(points: number): Promise<RangerLevel> {
     const levels = await this.getRangerLevels();
     const sortedLevels = levels.sort((a, b) => b.minPoints - a.minPoints);
-    return sortedLevels.find(level => points >= level.minPoints) || levels[0];
+    return sortedLevels.find((level) => points >= level.minPoints) || levels[0];
   }
 }
 
